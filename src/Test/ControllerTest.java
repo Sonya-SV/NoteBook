@@ -69,6 +69,28 @@ public class ControllerTest {
         Assert.assertFalse("ї34".matches(REGEX_FLAT_NUMBER));
         Assert.assertFalse("45678".matches(REGEX_FLAT_NUMBER));
     }
+    @Test
+    public void testRegexDate(){
+        Assert.assertTrue("22.04.1999".matches(REGEX_DATE));
+        Assert.assertTrue("01.12.12".matches(REGEX_DATE));
+        Assert.assertTrue("2.2.22".matches(REGEX_DATE));
+        Assert.assertFalse("32.12.45".matches(REGEX_DATE));
+        Assert.assertFalse("12.13.1888".matches(REGEX_DATE));
+        Assert.assertFalse("12.12.123".matches(REGEX_DATE));
+        Assert.assertFalse("01.00.1920".matches(REGEX_DATE));
+    }
+    @Test
+    public void testRegexCity(){
+        Assert.assertTrue("Київ".matches(REGEX_CITY));
+        Assert.assertTrue("Kyiv".matches(REGEX_CITY));
+        Assert.assertTrue("Лос-Анджелес".matches(REGEX_CITY));
+        Assert.assertTrue("Мінеральні Води".matches(REGEX_CITY));
+        Assert.assertTrue("Asd s d f".matches(REGEX_CITY));
+        Assert.assertFalse("київ".matches(REGEX_CITY));
+        Assert.assertFalse("Київ12".matches(REGEX_CITY));
+        Assert.assertFalse("алаff".matches(REGEX_CITY));
+        Assert.assertFalse("".matches(REGEX_CITY));
+    }
 
 
 }
