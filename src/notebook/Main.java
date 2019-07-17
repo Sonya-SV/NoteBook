@@ -1,4 +1,4 @@
-package NoteBook;
+package notebook;
 
 public class Main {
 

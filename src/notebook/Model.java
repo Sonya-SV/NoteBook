@@ -1,4 +1,4 @@
-package NoteBook;
+package notebook;
 
 public class Model {
     private enum Groups {

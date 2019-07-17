@@ -1,14 +1,11 @@
-package Test;
+package test;
 
 
-import NoteBook.Controller;
+import notebook.Controller;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.regex.*;
-
-import static NoteBook.Controller.*;
+import static notebook.Controller.*;
 
 public class ControllerTest {
 
