@@ -1,10 +1,7 @@
-package notebook;
+package notebook.model;
 
 public class Model {
-    private enum Groups {
-
-    }
-
+    private enum Groups {};
     private String Surname;
     private String Name;
     private String MiddleName;
@@ -22,7 +19,7 @@ public class Model {
     private String HomeNumber;
     private String FlatNumber;
     private String Address;
-    private String[] Dates;
+    private String Dates;
 
     public String getSurname() {
         return Surname;
@@ -156,11 +153,11 @@ public class Model {
         Address = address;
     }
 
-    public String[] getDates() {
+    public String getDates() {
         return Dates;
     }
 
-    public void setDates(String[] dates) {
+    public void setDates(String dates) {
         Dates = dates;
     }
 
