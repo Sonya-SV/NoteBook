@@ -13,8 +13,8 @@ public class UtilityController {
         this.view = view;
     }
 
-    String checkInput(String msg, String regex) {
-        String input; ///////&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&77
+    String checkInputRegex(String msg, String regex) {
+        String input;
         view.printInputData(msg);
         while (!(sc.hasNext() &&
                 (input = sc.nextLine()).matches(regex))) {
@@ -22,4 +22,5 @@ public class UtilityController {
         }
         return input;
     }
+
 }

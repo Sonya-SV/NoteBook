@@ -1,12 +1,13 @@
 package notebook.controller;
 
+import notebook.RepeatArgumentExcetion;
 import notebook.model.Model;
-import static notebook.controller.Regex.*;
+
+import static notebook.view.TextConstant.*;
+
+import notebook.model.User;
 import notebook.view.View;
-import  static notebook.view.TextConstant.*;
 
-
-import java.awt.desktop.ScreenSleepEvent;
 import java.util.Scanner;
 
 public class Controller {
@@ -15,14 +16,26 @@ public class Controller {
     private View view;
 
 
-    public Controller(Model model, View view) {
-        this.model = model;
+    public Controller(Model user, View view) {
+        this.model = user;
         this.view = view;
     }
 
-    public void executeUser(){
+    public void executeUser() {
         Scanner sc = new Scanner(System.in);
         NoteController noteController = new NoteController(sc, view);
-        noteController.inputNote();
+        while(true) {
+            try {
+                model.addUser(noteController.inputNote());
+                break;
+            } catch (RepeatArgumentExcetion e) {
+            }
+        }
+
+
+
+
     }
 }
+
+
