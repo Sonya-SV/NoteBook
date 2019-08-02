@@ -1,7 +1,6 @@
 package notebook.controller;
 
-import notebook.RepeatArgumentExcetion;
-import notebook.model.User;
+import notebook.model.entity.User;
 import notebook.view.View;
 
 import java.util.Scanner;
@@ -22,17 +21,37 @@ public class NoteController {
     }
 
 
-    public User inputNote(){
-        UtilityController utilityController = new UtilityController(sc, view);
+    public void inputNote(){
+        UtilityController utilityController
+                = new UtilityController(sc, view);
 
-        String strName = (String.valueOf(View.bundle.getLocale()).equals("uk"))
+        String strName = (String.valueOf(
+                View.bundle.getLocale()).equals("uk"))
                 ? REGEX_NAME_UK : REGEX_NAME_EN;
 
-        this.name= utilityController.checkInputRegex(INPUT_NAME, strName);
-        this.email = utilityController.checkInputRegex(INPUT_EMAIL, REGEX_EMAIL);
-        return new User(this.name, this.email);
+        this.name=
+                utilityController.checkInputRegex(
+                        INPUT_NAME, strName);
+        this.email =
+                utilityController.checkInputRegex(
+                        INPUT_EMAIL, REGEX_EMAIL);
+    }
 
+    public void inputEmail(){
+        UtilityController utilityController =
+                new UtilityController(sc, view);
+
+        this.email =
+                utilityController.checkInputRegex(
+                        INPUT_EMAIL, REGEX_EMAIL);
     }
 
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

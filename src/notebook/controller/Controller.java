@@ -1,11 +1,10 @@
 package notebook.controller;
 
-import notebook.RepeatArgumentExcetion;
+import notebook.model.entity.RepeatArgumentExcetion;
 import notebook.model.Model;
 
+import notebook.model.entity.User;
 import static notebook.view.TextConstant.*;
-
-import notebook.model.User;
 import notebook.view.View;
 
 import java.util.Scanner;
@@ -24,17 +23,24 @@ public class Controller {
     public void executeUser() {
         Scanner sc = new Scanner(System.in);
         NoteController noteController = new NoteController(sc, view);
-        while(true) {
-            try {
-                model.addUser(noteController.inputNote());
+        noteController.inputNote();
+        User user = getUser(noteController);
+        view.printMessage(user.toString());
+
+    }
+
+    private User getUser(NoteController noteController){
+        User user = null;
+        while(true){
+            try{
+                user = new User(noteController.getName(), noteController.getEmail());
+                model.addUser(user);
                 break;
-            } catch (RepeatArgumentExcetion e) {
+            }catch (RepeatArgumentExcetion e){
+                noteController.inputEmail();
             }
         }
-
-
-
-
+        return user;
     }
 }
 
